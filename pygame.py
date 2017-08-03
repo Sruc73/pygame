@@ -1,4 +1,11 @@
 import pygame
+from pygame.locals import *
+
 
 pygame.init()
-fenetre = pygame.set_mode((640, 480))
+fenetre = pygame.display.set_mode((640, 480))
+
+continuer = 1
+
+while continuer == 1:
+    continue

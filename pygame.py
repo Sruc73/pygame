@@ -12,7 +12,8 @@ fenetre.blit(fond, (0, 0))
 
 #Chargement et collage du personnage
 perso = pygame.image.load("data/perso.png").convert_alpha()
-fenetre.blit(perso, (200, 300))
+position_perso = perso.get_rect()
+fenetre.blit(perso, position_perso)
 
 #Rafraîchissement de l'écran
 pygame.display.flip()
@@ -32,4 +33,4 @@ while continuer:
 fenetre.blit(fond, (0,0))
 fenetre.blit(perso, position_perso)
 #Rafraichissement
-pygame.display.flip
+pygame.display.flip()

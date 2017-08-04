@@ -10,6 +10,7 @@ fenetre = pygame.display.set_mode((640, 480), RESIZABLE)
 fond = pygame.image.load("data/background.jpg").convert()
 fenetre.blit(fond, (0, 0))
 
+#Chargement et collage du personnage
 perso = pygame.image.load("data/perso.png").convert_alpha()
 fenetre.blit(perso, (200, 300))
 
@@ -19,6 +20,16 @@ pygame.display.flip()
 #Boucle infinie
 continuer = 1
 while continuer:
-    for event in pygame.event.get(): #On parcours la liste de tous les événements reçus
-        if event.type == QUIT: #Si un de ces événements est de type QUIT
-            continuer = 0 #On arrête la boucle
+    for event in pygame.event.get(): #Attente des événements
+        if event.type == QUIT:
+            continuer = 0
+        if event.type == KEYDOWN:
+            if event.key == K_DOWN: #Si "flèche bas"
+                #On descend le perso
+                position_perso = position_perso.move(0, 3)
+
+#Re-collage
+fenetre.blit(fond, (0,0))
+fenetre.blit(perso, position_perso)
+#Rafraichissement
+pygame.display.flip

@@ -18,6 +18,11 @@ fenetre.blit(perso, position_perso)
 #Rafraîchissement de l'écran
 pygame.display.flip()
 
+#Gestion du déplacement lorsque l'on garde la touche enfoncée
+# 400 est le délai avant de continuer les déplacements quand la touche reste enfoncée (en ms)
+# 30 est le temps entre chaque déplacements (en ms)
+pygame.key.set_repeat(400, 30)
+
 #Boucle infinie
 continuer = 1
 while continuer:
@@ -28,6 +33,15 @@ while continuer:
             if event.key == K_DOWN: #Si "flèche bas"
                 #On descend le perso
                 position_perso = position_perso.move(0, 3)
+            elif event.key == K_UP: #Si "flèche haute"
+                #on monte le perso
+                position_perso = position_perso.move(0, -3)
+            elif event.key == K_LEFT: #Si "flèche gauche"
+                #On va à gauche
+                position_perso = position_perso.move(3, 0)
+            elif event.key == K_RIGHT: #Si "flèche droite"
+                #On va à droite
+                position_perso = position_perso.move(-3, 0)
 
 #Re-collage
 fenetre.blit(fond, (0,0))

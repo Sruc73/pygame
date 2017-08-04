@@ -18,5 +18,7 @@ pygame.display.flip()
 
 #Boucle infinie
 continuer = 1
-while continuer == 1:
-    continuer = int(input())
+while continuer:
+    for event in pygame.event.get(): #On parcours la liste de tous les événements reçus
+        if event.type == QUIT: #Si un de ces événements est de type QUIT
+            continuer = 0 #On arrête la boucle
